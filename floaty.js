@@ -45,9 +45,6 @@
      * @param {route} route
      */
     var executeRoute = function (route) {
-        // Set window location and add to history.
-        window.history.pushState(null, null, route.url);
-
         var exceptions = [];
 
         // Execute middlewares.
@@ -72,6 +69,9 @@
 
         // Execute callback.
         route.callback(route);
+
+        // Set window location and add to history.
+        window.history.pushState(null, null, route.url);
     };
 
     /**
